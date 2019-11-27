@@ -1,0 +1,29 @@
+.jumbotron{
+    background-image: url(../img/bg2.jpg);
+    background-size: cover;
+    height: 100%;
+}
+
+
+footer {
+  background: #222;
+  color: #aaa;
+  padding-top: 10px;
+    position: absolute;
+    bottom: 0 px;
+    width: 100%;
+ 
+}
+#product-price{
+    color: red;
+}
+
+.price{
+    font-size:20px;
+   color:darkred;
+
+}
+
+.textareawidth{
+    width:900px;
+}

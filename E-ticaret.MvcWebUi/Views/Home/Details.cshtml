@@ -1,0 +1,86 @@
+﻿@using E_ticaret.MvcWebUi.Entity
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container mt-4">
+        <div class="row ">
+            <div class="col-md-6">
+                <img src="~/Upload/@Model.Image" class="img-responsive w-100">
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>@Model.Name</h2>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        @if (Model.IsApproved)
+                        {
+                            <span class=" badge badge-success" style="font-size:16px;">Stokta Kalan:  @Model.Stock</span>
+                            if (Model.Cargo)
+                            {
+                                <strong class="text-danger"> &nbsp; Ücretsiz Kargo</strong>
+                            }
+                            else
+                            {
+                                <strong class="text-danger"> &nbsp; Kargo Alıcıya Aittir...</strong>
+                            }
+
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger stok" style="font-size:16px;">Stokta Yok</span>
+                        }
+
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="badge badge-success">34</span>
+                    </div>
+                    <div id="write-review" class="col-md-4">
+                        <a href="#">Yorum Yap</a>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <h3 id="product-price">@Model.Price TL</h3>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <button class="btn btn-success"><i class="fas fa-shopping-basket"></i> SEPETE EKLE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">DESCRİPTİON</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">PAYMENT METHOD</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">REVİEW</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam earum aperiam, architecto numquam a quas aut minus sapiente, nobis iste consequatur amet, deserunt eius eum doloremque sequi veritatis assumenda tempore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae blanditiis suscipit ipsam reprehenderit aperiam aut facere possimus eveniet iusto voluptatum quibusdam perspiciatis animi assumenda commodi, quasi quod. Nihil, eius, quod.</div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam earum aperiam, architecto numquam a quas aut minus sapiente, nobis iste consequatur amet, deserunt eius eum doloremque sequi veritatis assumenda tempore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae blanditiis suscipit ipsam reprehenderit aperiam aut facere possimus eveniet iusto voluptatum quibusdam perspiciatis animi assumenda commodi, quasi quod. Nihil, eius, quod...</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam earum aperiam, architecto numquam a quas aut minus sapiente, nobis iste consequatur amet, deserunt eius eum doloremque sequi veritatis assumenda tempore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae blanditiis suscipit ipsam reprehenderit aperiam aut facere possimus eveniet iusto voluptatum quibusdam perspiciatis animi assumenda commodi, quasi quod. Nihil, eius, quod...</div>
+        </div>
+    </div>
+</div>
+<br><br>
