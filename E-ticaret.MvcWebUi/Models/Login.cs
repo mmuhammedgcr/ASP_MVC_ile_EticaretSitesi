@@ -16,6 +16,7 @@ namespace E_ticaret.MvcWebUi.Models
 
 
         [Required]
+        [DataType(DataType.Password)]
         [DisplayName("Şifre")]
         public string Password { get; set; }
 

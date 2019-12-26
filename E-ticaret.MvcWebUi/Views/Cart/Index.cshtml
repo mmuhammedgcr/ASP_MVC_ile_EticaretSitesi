@@ -1,0 +1,100 @@
+﻿@model E_ticaret.MvcWebUi.Models.Cart
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .aralik{
+        margin-right:10px;
+    }
+</style>
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Alışveriş Sepeti</h2>
+            <hr />
+            @if (Model.CartLines.Count > 0)
+            {
+                <table class="table table-bordered">
+                    <thead>
+                    <th></th>
+                    <th>Adet</th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyatı</th>
+                    <th>Toplam Tutar</th>
+                    <th></th>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartLines)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/Upload/@item.Product.Image" width="50px;" />
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @item.Product.Name
+                                </td>
+                                <td>
+                                    @item.Product.Price.ToString("c")
+                                </td>
+                                <td>
+                                    @((item.Product.Price * item.Quantity).ToString("c"))
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                    {
+                                        @Html.Hidden("Id", item.Product.Id)
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                            Sil
+                                        </button>
+
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                    <td colspan=6 class="text-right">
+                        <strong>Ödenecek Tutar:</strong>  @Model.Total().ToString("c")
+                    </td>
+                    </tfoot>
+                </table>
+                using (Html.BeginForm("AllDelete", "Cart"))
+                {
+                    <button style="float:right;" type="submit" class="btn btn-danger aralik">
+                        <i class="fas fa-trash"></i>
+                        Hepsini Sil
+                    </button>
+                }
+
+                <a style="float:right;" href="/Cart/Checkout" class="btn btn-success aralik">
+                    <i class="fas fa-check"></i>
+                    Alışverişi Tamamla
+                </a>
+                <a style="float:right;" href="/Home/List" class="btn btn-primary aralik">
+                    <i class="fas fa-backward"></i>
+                    Alışverişe Devam Et
+                </a>
+
+
+
+            }
+            else
+            {
+                <div class="alert alert-warning" role="alert">
+                    Alışveriş Sepetinizde Ürün Bulunmamamktadır...
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+

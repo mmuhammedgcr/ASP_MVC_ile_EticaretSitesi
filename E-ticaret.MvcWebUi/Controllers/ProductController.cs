@@ -10,11 +10,13 @@ using E_ticaret.MvcWebUi.Entity;
 
 namespace E_ticaret.MvcWebUi.Controllers
 {
+    [Authorize(Roles = "admin")] //Loginden giriş yapmadan product viewlerine girişine izin vermez
     public class ProductController : Controller
     {
         private DataContext db = new DataContext();
 
-        // GET: Product
+        // GET: Product 
+        
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category);

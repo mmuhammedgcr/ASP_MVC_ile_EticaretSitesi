@@ -1,0 +1,24 @@
+﻿@model E_ticaret.MvcWebUi.Models.Cart
+<style>
+    #sepet{
+        color:white;
+    }
+  #sepeta{
+      color:white;
+  }
+  #sepeta:hover{
+      text-decoration:none;
+      color:greenyellow;
+  }
+      
+  }
+</style>
+
+<ul id="sepet" class="navbar-nav  my-2 my-lg-0">
+    <li class="nav-item">
+        <a id="sepeta" href="/Cart/">
+            <i class="fas fa-shopping-cart "></i>
+            @Model.CartLines.Count
+        </a>
+    </li>
+</ul>

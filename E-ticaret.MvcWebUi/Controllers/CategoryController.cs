@@ -10,6 +10,7 @@ using E_ticaret.MvcWebUi.Entity;
 
 namespace E_ticaret.MvcWebUi.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class CategoryController : Controller
     {
         private DataContext db = new DataContext();

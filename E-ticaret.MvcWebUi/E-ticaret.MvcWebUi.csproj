@@ -150,8 +150,11 @@
     <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
@@ -277,6 +280,9 @@
     <Content Include="Upload\pc1.jpg" />
     <Content Include="Upload\phone1.jpg" />
     <Content Include="Upload\phone2.png" />
+    <Content Include="Upload\slide1.jpg" />
+    <Content Include="Upload\slide2.png" />
+    <Content Include="Upload\slide3.png" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
@@ -285,10 +291,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Entity\EnumOrderState.cs" />
     <Compile Include="Entity\IdentityDataContext.cs" />
+    <Compile Include="Entity\Order.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -298,9 +308,15 @@
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Identity\ApplicationRole.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\IdentityInitializer.cs" />
+    <Compile Include="Models\AdminOrderModel.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\OrderDetailsModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\ShippingDetails.cs" />
+    <Compile Include="Models\UserOrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +339,17 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\sepetMiktar.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Cart\Completed.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

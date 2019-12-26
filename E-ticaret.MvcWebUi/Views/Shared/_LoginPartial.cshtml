@@ -1,0 +1,41 @@
+﻿
+
+    <ul class="navbar-nav  my-2 my-lg-0">
+        @if (Request.IsAuthenticated)
+        {
+            //kullanıcı adını ve logout göster
+         
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink" data-toggle="dropdown" href="/Account"><i class="fas fa-user-alt"></i>@User.Identity.Name</a>
+               
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    @if (User.Identity.Name == "mmuhammedgcr")
+                    {
+                        <a class="dropdown-item" href="/Order">Yönetim Paneli </a>
+                    }
+                    <a class="dropdown-item" href="/Cart">Sepetim</a>
+                    <a class="dropdown-item" href="/Account">Siparişlerim</a>
+                    <a class="dropdown-item" href="/Home/Index">Alışverişe Devam</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/Account/LogOut"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
+            </li>
+
+
+        }
+        else
+        {
+            //login ve yeni kayıt sekmelerini goster
+            <li class="nav-item active">
+                <a class="nav-link" href="/Account/Login"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Account/Register"><i class="fas fa-plus-circle"></i> Yeni Kayıt</a>
+            </li>
+        }
+
+
+
+    </ul>

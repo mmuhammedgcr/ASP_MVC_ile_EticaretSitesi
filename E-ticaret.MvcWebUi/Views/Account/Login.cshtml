@@ -1,0 +1,68 @@
+﻿@model E_ticaret.MvcWebUi.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<div class="container mt-4">
+    <h2>Kullanıcı Girişi</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form id="form">
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "font-weight-bold control-label col-md-2" })
+        <div class="col-md-10" id="ee">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "font-weight-bold control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password,  new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Giriş" class="btn btn-block btn-default btn-success" />
+        </div>
+    </div>
+
+</form>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+               
+                
+            };
+        </script>
+    }
+</div>
+    }
+
+
+
+    <div>
+        @Html.ActionLink("Geri Dön", "Index")
+    </div>
+</div><br /><br /><br /><br />
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

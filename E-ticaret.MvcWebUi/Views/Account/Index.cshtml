@@ -1,0 +1,41 @@
+﻿@model IEnumerable<E_ticaret.MvcWebUi.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sipariş Bilgileriniz</h2>
+            <hr />
+            <table class="table table-bordered table-striped">
+                <tr>
+                <tr>
+                    <th>Urun Numarası</th>
+                    <th>Urun Tarihi</th>
+                    <th>Toplam Tutar</th>
+                    <th>Durumu</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.OrderNumber</td>
+                            <td>@item.OrderDate.ToLongDateString()</td>
+                            <td>@item.Total.ToString("c")</td>
+                            <td>@item.OrderState</td>
+                            <td>@Html.ActionLink("Detay","Details",new {id=item.Id},new { @class="btn btn-primary"})</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />

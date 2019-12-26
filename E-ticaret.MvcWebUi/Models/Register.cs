@@ -32,11 +32,13 @@ namespace E_ticaret.MvcWebUi.Models
 
         [Required]
         [DisplayName("Şifre")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
 
         [Required]
         [DisplayName("Şifre Tekrar")]
+        [DataType(DataType.Password)]
         [Compare("Password",ErrorMessage ="Şifreler Uyuşmuyor")]
         public string RePassword { get; set; }
     }

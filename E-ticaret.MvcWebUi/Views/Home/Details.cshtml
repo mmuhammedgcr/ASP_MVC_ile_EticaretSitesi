@@ -61,7 +61,17 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12">
-                        <button class="btn btn-success"><i class="fas fa-shopping-basket"></i> SEPETE EKLE</button>
+
+                        @using (Html.BeginForm("AddToCart", "Cart"))
+                        {
+                            @Html.HiddenFor(i=>i.Id) //controller a veri gondermek için
+                            <button type="submit" class="btn btn-success">
+                            <i class="fas fa-shopping-basket"></i>
+                            SEPETE EKLE
+                           </button >
+                        }
+
+
                     </div>
                 </div>
             </div>
